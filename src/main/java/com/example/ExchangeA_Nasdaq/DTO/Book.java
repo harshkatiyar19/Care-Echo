@@ -1,6 +1,7 @@
 package com.example.ExchangeA_Nasdaq.DTO;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public record Book(
         int orderId,
@@ -13,7 +14,7 @@ public record Book(
         OrderType orderType,
         OrderStatus orderStatus,
         OrderValidity orderValidity,
-        LocalDateTime timeStamp
+        Date timeStamp
         //int userId,
 
 ) {}
