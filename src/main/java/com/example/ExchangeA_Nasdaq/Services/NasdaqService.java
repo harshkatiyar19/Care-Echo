@@ -1,5 +1,6 @@
-package com.example.CareEcho.Exchanges.Nasdaq;
+package com.example.ExchangeA_Nasdaq.Services;
 
+import com.example.ExchangeA_Nasdaq.DTO.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -9,7 +10,7 @@ import java.time.LocalDateTime;
 import java.util.Random;
 
 @Service
-public class RandomDataService {
+public class NasdaqService {
 
     @Autowired
     private SimpMessagingTemplate template;

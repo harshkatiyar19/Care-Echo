@@ -1,4 +1,4 @@
-package com.example.CareEcho.Exchanges.Nasdaq;
+package com.example.ExchangeA_Nasdaq.DTO;
 
 import lombok.Getter;
 

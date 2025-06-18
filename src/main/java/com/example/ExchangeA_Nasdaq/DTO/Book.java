@@ -1,6 +1,4 @@
-package com.example.CareEcho.Exchanges.Nasdaq;
-
-import lombok.Getter;
+package com.example.ExchangeA_Nasdaq.DTO;
 
 import java.time.LocalDateTime;
 

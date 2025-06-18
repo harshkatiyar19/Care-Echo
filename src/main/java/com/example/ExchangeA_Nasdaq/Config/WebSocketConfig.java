@@ -1,4 +1,4 @@
-package com.example.CareEcho.Exchanges.Nasdaq;
+package com.example.ExchangeA_Nasdaq.Config;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.messaging.simp.config.MessageBrokerRegistry;

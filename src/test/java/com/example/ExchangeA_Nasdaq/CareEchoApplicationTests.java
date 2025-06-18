@@ -1,4 +1,4 @@
-package com.example.CareEcho;
+package com.example.ExchangeA_Nasdaq;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
