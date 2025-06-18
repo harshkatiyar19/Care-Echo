@@ -6,10 +6,10 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 
 @SpringBootApplication
 @EnableScheduling
-public class CareEchoApplication {
+public class ExchangeA_Nasdaq {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CareEchoApplication.class, args);
+		SpringApplication.run(ExchangeA_Nasdaq.class, args);
 	}
 
 }
