@@ -7,6 +7,7 @@ import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.scheduling.TaskScheduler;
 import org.springframework.stereotype.Service;
 
+import java.lang.classfile.instruction.SwitchCase;
 import java.time.Instant;
 import java.util.Calendar;
 import java.util.Date;
@@ -38,11 +39,27 @@ public class NasdaqService {
 
     // every 2 seconds
     public void sendRandomNumber() {
-        final float min = 10.2f;
-        final float max = 200.2f;
+
         int year=2025,month=6,date=24,hours=15,minutes=30;
+        Symbol symbol=Symbol.fromCode(random.nextInt(1,8));
+        float basePrice=0;
+
+        switch (symbol) {
+            case APPL -> basePrice = 180.0f;   // Apple Inc.
+            case TSLA -> basePrice = 190.0f;   // Tesla Inc.
+            case GOOGL -> basePrice = 135.0f;  // Alphabet Inc. (Google)
+            case MSFT -> basePrice = 340.0f;   // Microsoft Corp.
+            case AMZN -> basePrice = 125.0f;   // Amazon.com Inc.
+            case NVDA -> basePrice = 1100.0f;  // NVIDIA Corp.
+            case META -> basePrice = 460.0f;   // Meta Platforms Inc.
+            default -> basePrice = 100.0f;     // Default fallback
+        }
+
+        final float min = basePrice-50;
+        final float max = basePrice+50;
 
         float price = roundToTwoDecimals(min + random.nextFloat() * (max - min));
+        
         int qty = random.nextInt(10,101);
         int filledQty = random.nextInt(0,qty+1);
         int remainingQty=qty-filledQty;
@@ -79,7 +96,8 @@ public class NasdaqService {
         OrderType orderType= OrderType.fromCode(random.nextInt(1,9));
         OrderStatus orderStatus = OrderStatus.fromCode(orderStatusCode) ;
         OrderValidity orderValidity = OrderValidity.fromCode(orderValidityCode);
-        Symbol symbol=Symbol.fromCode(random.nextInt(1,8));
+       
+        
         int id = random.nextInt(0,10000);
         Book book = new Book(id,symbol,side,price,qty,filledQty,remainingQty,orderType,orderStatus,orderValidity,timestamp,"NASDQ");
 
