@@ -45,9 +45,10 @@ public class NasdaqService {
         float maxFluctuation;
         int minQty;
         int maxQty;
+        String exchange="NASDAQ";
 
         switch (symbol) {
-            case APPL -> {
+            case AAPL -> {
                 basePrice = 180.0f;
                 minFluctuation = -3.0f;
                 maxFluctuation = 5.0f;
@@ -148,10 +149,10 @@ public class NasdaqService {
        
         
         int id = random.nextInt(0,10000);
-        Book book = new Book(id,symbol,side,price,qty,filledQty,remainingQty,orderType,orderStatus,orderValidity,timestamp,"NASDQ");
+        Book book = new Book(id,symbol,side,price,qty,filledQty,remainingQty,orderType,orderStatus,orderValidity,timestamp,exchange);
 
 
-        template.convertAndSend("/topic/book", book);
+        template.convertAndSend("/topic/order", book);
 //        System.out.println("Sending book: " + book);
         scheduleNextRun();
     }
