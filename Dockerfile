@@ -21,17 +21,15 @@ COPY src ./src
 # Build the application
 RUN ./mvnw clean package -DskipTests
 
-# Use a smaller base image for the runtime
-FROM eclipse-temurin:17-jre-alpine
-
-# Set working directory
-WORKDIR /app
-
-# Copy the built JAR file from the build stage
-COPY --from=0 /app/target/*.jar app.jar
-
 # Create a non-root user for security
 RUN addgroup --system spring && adduser --system spring --ingroup spring
+
+# Copy the built JAR file
+RUN cp target/*.jar app.jar
+
+# Change ownership of the app
+RUN chown spring:spring app.jar
+
 USER spring:spring
 
 # Expose the port your Spring Boot app runs on (default is 8080)
