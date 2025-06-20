@@ -383,7 +383,7 @@ public class NasdaqService {
         }
 
         template.convertAndSend("/topic/order", book);
-        System.out.println("Sent: " + book);
+//        System.out.println("Sent: " + book);
         scheduleNextRun();
     }
 
